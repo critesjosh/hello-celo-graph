@@ -1,0 +1,26 @@
+specVersion: 0.0.2
+description: HelloWorld for Celo
+repository: https://github.com/critesjosh/hello-celo-graph
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: HelloWorld
+    network: celo-alfajores
+    source:
+      address: "0x9D93eA514CFd6BBC17D8cAa2e75b1669b0391Fe7"
+      abi: HelloWorld
+      startBlock: 5718281
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Name
+      abis:
+        - name: HelloWorld
+          file: HelloWorld/abis/HelloWorld.json
+      eventHandlers:
+        - event: NameUpdated(string,string,address)
+          handler: handleNameUpdated
+      file: HelloWorld/HelloWorld.wasm
