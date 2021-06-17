@@ -6,10 +6,10 @@ pragma solidity >=0.5.0;
 // Declare a contract called HelloWorld
 contract HelloWorld {
   
-  event NameUpdated(string newName, string oldName, address updater);
+  event NameUpdated(bytes32 id, string newName, address updater);
   
   // Define a string called name, initialize it to 'Celo'
-  string name = 'Celo';
+  string name;
 
   // Declares a function called getName
   // The 'public' label means the function can be called internally, by transactions or other contracts
@@ -30,7 +30,7 @@ contract HelloWorld {
   function setName(string calldata newName) 
     external 
   {
-    emit NameUpdated(newName, name, msg.sender);
+    emit NameUpdated(keccak256(abi.encodePacked(block.timestamp, msg.sender)), newName, msg.sender);
     // Set the storage variable, name, to the value passed in as newName
     name = newName;
   }

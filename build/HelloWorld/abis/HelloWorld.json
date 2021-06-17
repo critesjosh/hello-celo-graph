@@ -4,14 +4,14 @@
     "inputs": [
       {
         "indexed": false,
-        "internalType": "string",
-        "name": "newName",
-        "type": "string"
+        "internalType": "bytes32",
+        "name": "id",
+        "type": "bytes32"
       },
       {
         "indexed": false,
         "internalType": "string",
-        "name": "oldName",
+        "name": "newName",
         "type": "string"
       },
       {
@@ -25,19 +25,6 @@
     "type": "event"
   },
   {
-    "inputs": [
-      {
-        "internalType": "string",
-        "name": "newName",
-        "type": "string"
-      }
-    ],
-    "name": "setName",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "inputs": [],
     "name": "getName",
     "outputs": [
@@ -48,6 +35,19 @@
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "newName",
+        "type": "string"
+      }
+    ],
+    "name": "setName",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   }
 ]

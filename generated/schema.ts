@@ -42,13 +42,21 @@ export class Name extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get oldName(): string {
-    let value = this.get("oldName");
-    return value.toString();
+  get newName(): string | null {
+    let value = this.get("newName");
+    if (value === null || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
   }
 
-  set oldName(value: string) {
-    this.set("oldName", Value.fromString(value));
+  set newName(value: string | null) {
+    if (value === null) {
+      this.unset("newName");
+    } else {
+      this.set("newName", Value.fromString(value as string));
+    }
   }
 
   get updater(): Bytes {

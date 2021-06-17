@@ -8,7 +8,7 @@ dataSources:
     name: HelloWorld
     network: celo-alfajores
     source:
-      address: "0x9D93eA514CFd6BBC17D8cAa2e75b1669b0391Fe7"
+      address: "0x0ed094aF433c89B30C61d8C6C79B3Bfd4DDf8783"
       abi: HelloWorld
       startBlock: 5718281
     mapping:
@@ -21,6 +21,6 @@ dataSources:
         - name: HelloWorld
           file: HelloWorld/abis/HelloWorld.json
       eventHandlers:
-        - event: NameUpdated(string,string,address)
+        - event: NameUpdated(bytes32,string,address)
           handler: handleNameUpdated
       file: HelloWorld/HelloWorld.wasm

@@ -23,11 +23,11 @@ export class NameUpdated__Params {
     this._event = event;
   }
 
-  get newName(): string {
-    return this._event.parameters[0].value.toString();
+  get id(): Bytes {
+    return this._event.parameters[0].value.toBytes();
   }
 
-  get oldName(): string {
+  get newName(): string {
     return this._event.parameters[1].value.toString();
   }
 

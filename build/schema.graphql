@@ -1,5 +1,5 @@
 type Name @entity {
   id: ID!
-  oldName: String!
+  newName: String
   updater: Bytes!
 }
