@@ -6,7 +6,7 @@ pragma solidity >=0.5.0;
 // Declare a contract called HelloWorld
 contract HelloWorld {
   
-  event NameUpdated(bytes32 id, string newName, address updater);
+  event NameUpdated(string newName, address updater);
   
   // Define a string called name, initialize it to 'Celo'
   string name;
@@ -30,7 +30,7 @@ contract HelloWorld {
   function setName(string calldata newName) 
     external 
   {
-    emit NameUpdated(keccak256(abi.encodePacked(block.timestamp, msg.sender)), newName, msg.sender);
+    emit NameUpdated(newName, msg.sender);
     // Set the storage variable, name, to the value passed in as newName
     name = newName;
   }
